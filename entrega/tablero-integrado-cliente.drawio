@@ -1,0 +1,267 @@
+<mxGraphModel dx="1654" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+
+    <!-- TÍTULO -->
+    <mxCell id="title" value="Bray Controls Andina — Tablero Integrado de Vistas Arquitectónicas (AS-IS)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=18;fontStyle=1;fontColor=#1a1a2e;" vertex="1" parent="1">
+      <mxGeometry x="80" y="15" width="1480" height="35" as="geometry" />
+    </mxCell>
+    <mxCell id="subtitle" value="ARQTEAM-05 | Julián Barragán · Juan David González · Josue Sarmiento | AREM — Universidad de La Sabana · 2026" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=10;fontColor=#555555;" vertex="1" parent="1">
+      <mxGeometry x="80" y="48" width="1480" height="20" as="geometry" />
+    </mxCell>
+
+    <!-- ===== CAPA 1: NEGOCIO (morado) ===== -->
+    <mxCell id="L1" value="1. Vista de Negocio" style="swimlane;startSize=28;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1;fontColor=#5a2d82;" vertex="1" parent="1">
+      <mxGeometry x="40" y="75" width="1560" height="160" as="geometry" />
+    </mxCell>
+
+    <mxCell id="actor_cliente" value="👤 Cliente&#xa;(solicita cotización / pedido)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="L1">
+      <mxGeometry x="20" y="50" width="140" height="80" as="geometry" />
+    </mxCell>
+    <mxCell id="proc_cotizacion" value="1️⃣ Cotización&#xa;Felipe (Ventas) elabora&#xa;oferta en Dynamics 365" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="L1">
+      <mxGeometry x="195" y="45" width="175" height="90" as="geometry" />
+    </mxCell>
+    <mxCell id="proc_pedido" value="2️⃣ Pedido de Venta&#xa;Cotización → Sales Order&#xa;en ERP LN (manual/auto)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="L1">
+      <mxGeometry x="405" y="45" width="175" height="90" as="geometry" />
+    </mxCell>
+    <mxCell id="proc_compra_corp" value="3️⃣ Orden al Corporativo&#xa;Pedido a Bray USA/Houston&#xa;vía correo + LN" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="L1">
+      <mxGeometry x="615" y="45" width="175" height="90" as="geometry" />
+    </mxCell>
+    <mxCell id="proc_despacho" value="4️⃣ Despacho / Remisión&#xa;Angélica (Operaciones)&#xa;coordina desde bodegas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="L1">
+      <mxGeometry x="825" y="45" width="175" height="90" as="geometry" />
+    </mxCell>
+    <mxCell id="proc_factura" value="5️⃣ Facturación&#xa;Proceso manual →&#xa;Sistema fe (DIAN)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="L1">
+      <mxGeometry x="1035" y="45" width="175" height="90" as="geometry" />
+    </mxCell>
+    <mxCell id="proc_posventa" value="6️⃣ Posventa / Soporte&#xa;Julián D. Rodríguez&#xa;(Dir. Técnico)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="L1">
+      <mxGeometry x="1245" y="45" width="175" height="90" as="geometry" />
+    </mxCell>
+
+    <!-- flechas negocio -->
+    <mxCell id="an1" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#9673a6;strokeWidth=2;" edge="1" source="actor_cliente" target="proc_cotizacion" parent="L1"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="an2" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#9673a6;strokeWidth=2;" edge="1" source="proc_cotizacion" target="proc_pedido" parent="L1"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="an3" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#9673a6;strokeWidth=2;" edge="1" source="proc_pedido" target="proc_compra_corp" parent="L1"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="an4" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#9673a6;strokeWidth=2;" edge="1" source="proc_compra_corp" target="proc_despacho" parent="L1"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="an5" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#d6b656;strokeWidth=2;dashed=1;" edge="1" source="proc_despacho" target="proc_factura" parent="L1"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="an5lbl" value="⚠️ proceso manual" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=8;fontColor=#b85450;" vertex="1" connectable="0" parent="an5"><mxGeometry x="-0.1" relative="1" as="geometry"/></mxCell>
+    <mxCell id="an6" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#9673a6;strokeWidth=2;" edge="1" source="proc_factura" target="proc_posventa" parent="L1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+    <!-- ===== CAPA 2: DATOS (verde) ===== -->
+    <mxCell id="L2" value="2. Vista de Datos (ERD — entidades y sistema de residencia)" style="swimlane;startSize=28;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;fontColor=#2d5a1b;" vertex="1" parent="1">
+      <mxGeometry x="40" y="250" width="1560" height="170" as="geometry" />
+    </mxCell>
+
+    <mxCell id="e_cliente" value="👤 CLIENTE&#xa;[Dynamics 365]&#xa;NIT, Nombre, Contacto&#xa;Segmento, Historial" style="shape=mxgraph.er.entity;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=9;" vertex="1" parent="L2">
+      <mxGeometry x="20" y="40" width="160" height="100" as="geometry" />
+    </mxCell>
+    <mxCell id="e_cotizacion" value="📋 COTIZACION&#xa;[Dynamics 365]&#xa;ID, Fecha, Ítems&#xa;Precio, Estado" style="shape=mxgraph.er.entity;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=9;" vertex="1" parent="L2">
+      <mxGeometry x="215" y="40" width="160" height="100" as="geometry" />
+    </mxCell>
+    <mxCell id="e_pedido" value="📦 PEDIDO_VENTA&#xa;[ERP LN]&#xa;ID, Bodega, Items&#xa;Estado, Fecha entrega" style="shape=mxgraph.er.entity;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=9;" vertex="1" parent="L2">
+      <mxGeometry x="415" y="40" width="160" height="100" as="geometry" />
+    </mxCell>
+    <mxCell id="e_inventario" value="🏭 INVENTARIO&#xa;[ERP LN]&#xa;SKU, Stock Bogotá&#xa;Stock Cali, Stock Bquilla" style="shape=mxgraph.er.entity;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=9;" vertex="1" parent="L2">
+      <mxGeometry x="615" y="40" width="160" height="100" as="geometry" />
+    </mxCell>
+    <mxCell id="e_reorder" value="⚠️ REORDER_POINT&#xa;[Excel — sin sistema]&#xa;SKU, Nivel Mín.&#xa;Proveedor, Lead Time" style="shape=mxgraph.er.entity;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;" vertex="1" parent="L2">
+      <mxGeometry x="615" y="50" width="160" height="100" as="geometry" />
+    </mxCell>
+    <mxCell id="e_orden_compra" value="🛒 ORDEN_COMPRA&#xa;[ERP LN]&#xa;ID, Proveedor Houston&#xa;Ítems, Fecha, Estado" style="shape=mxgraph.er.entity;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=9;" vertex="1" parent="L2">
+      <mxGeometry x="815" y="40" width="160" height="100" as="geometry" />
+    </mxCell>
+    <mxCell id="e_remision" value="🚚 REMISION&#xa;[ERP LN]&#xa;ID, Bodega origen&#xa;Transportista, Fecha" style="shape=mxgraph.er.entity;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=9;" vertex="1" parent="L2">
+      <mxGeometry x="1015" y="40" width="160" height="100" as="geometry" />
+    </mxCell>
+    <mxCell id="e_factura" value="🧾 FACTURA_VENTA&#xa;[Sist. FE — DIAN]&#xa;CUFE, NIT, Valor&#xa;⚠️ Sin integración LN" style="shape=mxgraph.er.entity;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;" vertex="1" parent="L2">
+      <mxGeometry x="1215" y="40" width="160" height="100" as="geometry" />
+    </mxCell>
+
+    <!-- flechas datos -->
+    <mxCell id="ad1" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;strokeWidth=1.5;" edge="1" source="e_cliente" target="e_cotizacion" parent="L2"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="ad2" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;strokeWidth=1.5;dashed=1;" edge="1" source="e_cotizacion" target="e_pedido" parent="L2"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="ad2lbl" value="híbrido" style="edgeLabel;html=1;fontSize=8;fontColor=#82b366;" vertex="1" connectable="0" parent="ad2"><mxGeometry x="-0.1" relative="1" as="geometry"/></mxCell>
+    <mxCell id="ad3" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;strokeWidth=1.5;" edge="1" source="e_pedido" target="e_inventario" parent="L2"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="ad4" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;strokeWidth=1.5;" edge="1" source="e_pedido" target="e_orden_compra" parent="L2"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="ad5" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;strokeWidth=1.5;" edge="1" source="e_orden_compra" target="e_remision" parent="L2"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="ad6" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#d6b656;strokeWidth=1.5;dashed=1;" edge="1" source="e_remision" target="e_factura" parent="L2"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="ad6lbl" value="⚠️ manual" style="edgeLabel;html=1;fontSize=8;fontColor=#b85450;" vertex="1" connectable="0" parent="ad6"><mxGeometry x="-0.1" relative="1" as="geometry"/></mxCell>
+
+    <!-- ===== CAPA 3: APLICACIONES (azul) ===== -->
+    <mxCell id="L3" value="3. Vista de Aplicaciones" style="swimlane;startSize=28;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;fontColor=#1a3a6e;" vertex="1" parent="1">
+      <mxGeometry x="40" y="435" width="1560" height="185" as="geometry" />
+    </mxCell>
+
+    <mxCell id="app_dynamics" value="💼 Dynamics 365 CRM&#xa;Cotizaciones + Clientes&#xa;Canal: nube Microsoft&#xa;Admin: Houston" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="L3">
+      <mxGeometry x="20" y="45" width="185" height="100" as="geometry" />
+    </mxCell>
+    <mxCell id="app_ln" value="🏭 ERP LN (Baan)&#xa;Pedidos, Inventario&#xa;Compras, Remisiones&#xa;Admin: Houston" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="L3">
+      <mxGeometry x="245" y="45" width="185" height="100" as="geometry" />
+    </mxCell>
+    <mxCell id="app_ordertrack" value="📊 Order Track&#xa;Seguimiento de órdenes&#xa;Estado: En implementación&#xa;(kickoff may-2025)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;dashed=1;" vertex="1" parent="L3">
+      <mxGeometry x="470" y="45" width="185" height="100" as="geometry" />
+    </mxCell>
+    <mxCell id="app_fe" value="🧾 Sist. Facturación&#xa;Electrónica (DIAN)&#xa;Sin integración auto. con LN&#xa;Proceso manual activo" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="L3">
+      <mxGeometry x="695" y="45" width="185" height="100" as="geometry" />
+    </mxCell>
+    <mxCell id="app_excel" value="⚠️ Excel + Outlook&#xa;Reorder Point&#xa;Seguimiento órdenes&#xa;(capa informal activa)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;fontStyle=2;" vertex="1" parent="L3">
+      <mxGeometry x="920" y="45" width="185" height="100" as="geometry" />
+    </mxCell>
+    <mxCell id="app_ad" value="🔐 Active Directory&#xa;Gestión de identidades&#xa;y accesos&#xa;Admin: Houston" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="L3">
+      <mxGeometry x="1145" y="45" width="185" height="100" as="geometry" />
+    </mxCell>
+    <mxCell id="app_sd" value="🎫 Service Desk&#xa;Soporte TI corporativo&#xa;SLA: Houston&#xa;Sin autonomía local" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="L3">
+      <mxGeometry x="1360" y="45" width="170" height="100" as="geometry" />
+    </mxCell>
+
+    <!-- integración entre apps -->
+    <mxCell id="aa1" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;strokeWidth=1.5;dashed=1;" edge="1" source="app_dynamics" target="app_ln" parent="L3"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="aa1lbl" value="híbrido (auto/manual)" style="edgeLabel;html=1;fontSize=8;fontColor=#6c8ebf;" vertex="1" connectable="0" parent="aa1"><mxGeometry x="-0.1" relative="1" as="geometry"/></mxCell>
+    <mxCell id="aa2" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#d6b656;strokeWidth=1.5;dashed=1;" edge="1" source="app_ln" target="app_ordertrack" parent="L3"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="aa2lbl" value="en impl." style="edgeLabel;html=1;fontSize=8;fontColor=#d6b656;" vertex="1" connectable="0" parent="aa2"><mxGeometry x="-0.1" relative="1" as="geometry"/></mxCell>
+    <mxCell id="aa3" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;strokeWidth=1.5;dashed=1;" edge="1" source="app_ln" target="app_fe" parent="L3"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="aa3lbl" value="⚠️ manual (pendiente)" style="edgeLabel;html=1;fontSize=8;fontColor=#b85450;" vertex="1" connectable="0" parent="aa3"><mxGeometry x="-0.1" relative="1" as="geometry"/></mxCell>
+    <mxCell id="aa4" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#d6b656;strokeWidth=1.5;dashed=1;" edge="1" source="app_ln" target="app_excel" parent="L3"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="aa4lbl" value="brecha → Excel suple a LN" style="edgeLabel;html=1;fontSize=8;fontColor=#b85450;" vertex="1" connectable="0" parent="aa4"><mxGeometry x="-0.1" relative="1" as="geometry"/></mxCell>
+    <mxCell id="aa5" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;strokeWidth=1.5;" edge="1" source="app_ad" target="app_ln" parent="L3"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="aa5lbl" value="controla accesos" style="edgeLabel;html=1;fontSize=8;fontColor=#6c8ebf;" vertex="1" connectable="0" parent="aa5"><mxGeometry x="-0.1" relative="1" as="geometry"/></mxCell>
+
+    <!-- ===== CAPA 4: INFRAESTRUCTURA (gris) ===== -->
+    <mxCell id="L4" value="4. Vista de Infraestructura" style="swimlane;startSize=28;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=1;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="40" y="635" width="1560" height="175" as="geometry" />
+    </mxCell>
+
+    <mxCell id="inf_azure" value="☁️ Microsoft Azure&#xa;Nube principal&#xa;Dynamics 365, Backups&#xa;Admin: Houston" style="shape=mxgraph.cisco.servers.standard_server;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontSize=10;" vertex="1" parent="L4">
+      <mxGeometry x="20" y="40" width="185" height="110" as="geometry" />
+    </mxCell>
+    <mxCell id="inf_ln_server" value="🖥️ Servidores LN&#xa;On-premise (Bogotá)&#xa;ERP + Inventario + Compras&#xa;Admin: Houston (remoto)" style="shape=mxgraph.cisco.servers.standard_server;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontSize=10;" vertex="1" parent="L4">
+      <mxGeometry x="245" y="40" width="185" height="110" as="geometry" />
+    </mxCell>
+    <mxCell id="inf_bodegas" value="🏭 Bodegas Regionales&#xa;Bogotá / Cali / Barranquilla&#xa;Mismo ERP LN compartido&#xa;Inventario diferenciado" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontSize=10;" vertex="1" parent="L4">
+      <mxGeometry x="470" y="50" width="185" height="100" as="geometry" />
+    </mxCell>
+    <mxCell id="inf_houston" value="🌐 Houston (Corporate)&#xa;Control centralizado&#xa;Azure · AD · LN · Service Desk&#xa;⚠️ Punto único de falla" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="L4">
+      <mxGeometry x="695" y="40" width="185" height="110" as="geometry" />
+    </mxCell>
+    <mxCell id="inf_backup" value="💾 Backup Automático&#xa;Azure (diario)&#xa;Sin DRP local documentado&#xa;Depende de Houston" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="L4">
+      <mxGeometry x="920" y="50" width="185" height="100" as="geometry" />
+    </mxCell>
+    <mxCell id="inf_vpn" value="🔒 VPN Corporativa&#xa;Conectividad CO ↔ Houston&#xa;Dependencia de disponibilidad&#xa;Site-to-site Bray global" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontSize=10;" vertex="1" parent="L4">
+      <mxGeometry x="1145" y="50" width="185" height="100" as="geometry" />
+    </mxCell>
+
+    <!-- flechas infra -->
+    <mxCell id="ai1" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#666666;strokeWidth=1.5;" edge="1" source="inf_azure" target="inf_houston" parent="L4"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="ai1lbl" value="administrado por" style="edgeLabel;html=1;fontSize=8;" vertex="1" connectable="0" parent="ai1"><mxGeometry x="-0.1" relative="1" as="geometry"/></mxCell>
+    <mxCell id="ai2" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#666666;strokeWidth=1.5;" edge="1" source="inf_ln_server" target="inf_houston" parent="L4"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="ai2lbl" value="soporte remoto" style="edgeLabel;html=1;fontSize=8;" vertex="1" connectable="0" parent="ai2"><mxGeometry x="-0.1" relative="1" as="geometry"/></mxCell>
+    <mxCell id="ai3" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#666666;strokeWidth=1.5;" edge="1" source="inf_bodegas" target="inf_ln_server" parent="L4"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="ai3lbl" value="ERP compartido" style="edgeLabel;html=1;fontSize=8;" vertex="1" connectable="0" parent="ai3"><mxGeometry x="-0.1" relative="1" as="geometry"/></mxCell>
+    <mxCell id="ai4" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#666666;strokeWidth=1.5;" edge="1" source="inf_azure" target="inf_backup" parent="L4"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="ai4lbl" value="backup diario" style="edgeLabel;html=1;fontSize=8;" vertex="1" connectable="0" parent="ai4"><mxGeometry x="-0.1" relative="1" as="geometry"/></mxCell>
+    <mxCell id="ai5" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#666666;strokeWidth=1.5;" edge="1" source="inf_vpn" target="inf_houston" parent="L4"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="ai5lbl" value="canal principal" style="edgeLabel;html=1;fontSize=8;" vertex="1" connectable="0" parent="ai5"><mxGeometry x="-0.1" relative="1" as="geometry"/></mxCell>
+
+    <!-- ===== CAPA 5: SEGURIDAD (rojo/naranja) ===== -->
+    <mxCell id="L5" value="5. Vista de Seguridad y Gobierno" style="swimlane;startSize=28;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;fontColor=#7a0000;" vertex="1" parent="1">
+      <mxGeometry x="40" y="825" width="1560" height="175" as="geometry" />
+    </mxCell>
+
+    <mxCell id="sec_rbac" value="🔐 Control de Acceso&#xa;Active Directory (Houston)&#xa;Roles: Ventas / Ops / Admin&#xa;Sin autonomía local" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontSize=10;" vertex="1" parent="L5">
+      <mxGeometry x="20" y="45" width="200" height="100" as="geometry" />
+    </mxCell>
+    <mxCell id="sec_datos" value="🔒 Protección de Datos&#xa;Ley 1581 / GDPR Corp.&#xa;⚠️ Sin responsable local&#xa;⚠️ Sin política CO formal" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="L5">
+      <mxGeometry x="255" y="45" width="200" height="100" as="geometry" />
+    </mxCell>
+    <mxCell id="sec_auditoria" value="📝 Auditoría y Trazabilidad&#xa;Logs en LN y Dynamics&#xa;⚠️ Excel sin auditoría&#xa;⚠️ Reorder sin trazabilidad" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="L5">
+      <mxGeometry x="490" y="45" width="200" height="100" as="geometry" />
+    </mxCell>
+    <mxCell id="sec_incidente" value="🚨 Gestión de Incidentes&#xa;Ataque 2022 → 1 semana&#xa;sin operación&#xa;Sin DRP local documentado" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;fontStyle=1;" vertex="1" parent="L5">
+      <mxGeometry x="725" y="45" width="200" height="100" as="geometry" />
+    </mxCell>
+    <mxCell id="sec_stride" value="🛡️ Amenazas STRIDE&#xa;Riesgos críticos identificados:&#xa;Excel sin control / FE manual&#xa;Dependencia total Houston" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontSize=10;" vertex="1" parent="L5">
+      <mxGeometry x="960" y="45" width="200" height="100" as="geometry" />
+    </mxCell>
+    <mxCell id="sec_cumplimiento" value="⚖️ Cumplimiento Normativo&#xa;DIAN (facturación e.)&#xa;Ley 1581 (datos personales)&#xa;⚠️ Parcialmente cumplido" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="L5">
+      <mxGeometry x="1195" y="45" width="200" height="100" as="geometry" />
+    </mxCell>
+
+    <!-- ===== FLECHAS ENTRE CAPAS (integración vertical) ===== -->
+
+    <!-- N1: Negocio → Datos -->
+    <mxCell id="cross1" value="genera" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#9673a6;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" source="proc_cotizacion" target="e_cotizacion" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="cross2" value="genera" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#9673a6;strokeWidth=2;" edge="1" source="proc_pedido" target="e_pedido" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="cross3" value="dispara" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#9673a6;strokeWidth=2;" edge="1" source="proc_despacho" target="e_remision" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="cross4" value="genera" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#d6b656;strokeWidth=2;dashed=1;" edge="1" source="proc_factura" target="e_factura" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- N2: Datos → Aplicaciones -->
+    <mxCell id="cross5" value="reside en" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;strokeWidth=2;" edge="1" source="e_cotizacion" target="app_dynamics" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="cross6" value="reside en" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;strokeWidth=2;" edge="1" source="e_pedido" target="app_ln" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="cross7" value="⚠️ sin sistema" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#d6b656;strokeWidth=2;dashed=1;" edge="1" source="e_reorder" target="app_excel" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="cross8" value="reside en" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;strokeWidth=2;dashed=1;" edge="1" source="e_factura" target="app_fe" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- N3: Aplicaciones → Infraestructura -->
+    <mxCell id="cross9" value="corre en" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;strokeWidth=2;" edge="1" source="app_dynamics" target="inf_azure" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="cross10" value="corre en" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;strokeWidth=2;" edge="1" source="app_ln" target="inf_ln_server" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="cross11" value="admin: Houston" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;strokeWidth=2;" edge="1" source="app_ad" target="inf_houston" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- N4: Infraestructura → Seguridad -->
+    <mxCell id="cross12" value="habilita" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#666666;strokeWidth=2;" edge="1" source="inf_houston" target="sec_rbac" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="cross13" value="brecha" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;strokeWidth=2;dashed=1;" edge="1" source="inf_houston" target="sec_incidente" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="cross14" value="audita" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#666666;strokeWidth=2;" edge="1" source="inf_azure" target="sec_auditoria" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- ===== LEYENDA ===== -->
+    <mxCell id="leyenda" value="Leyenda" style="swimlane;startSize=22;fillColor=#f5f5f5;strokeColor=#666;fontStyle=1;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="40" y="1015" width="860" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="lg1" value="Integración activa" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" vertex="1" parent="leyenda">
+      <mxGeometry x="10" y="25" width="130" height="25" as="geometry"/>
+    </mxCell>
+    <mxCell id="lg2" value="⚠️ Proceso manual / brecha" style="rounded=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;" vertex="1" parent="leyenda">
+      <mxGeometry x="155" y="25" width="160" height="25" as="geometry"/>
+    </mxCell>
+    <mxCell id="lg3" value="🚨 Riesgo crítico" style="rounded=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;" vertex="1" parent="leyenda">
+      <mxGeometry x="330" y="25" width="130" height="25" as="geometry"/>
+    </mxCell>
+    <mxCell id="lg4" value="En implementación" style="rounded=1;fillColor=#fff2cc;strokeColor=#d6b656;dashed=1;fontSize=9;" vertex="1" parent="leyenda">
+      <mxGeometry x="475" y="25" width="130" height="25" as="geometry"/>
+    </mxCell>
+    <mxCell id="lg5" value="— — línea punteada = manual/pendiente" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=9;fontColor=#b85450;" vertex="1" parent="leyenda">
+      <mxGeometry x="620" y="28" width="230" height="20" as="geometry"/>
+    </mxCell>
+
+    <!-- Nota de frase Angélica -->
+    <mxCell id="frase" value="💬 &quot;Me encantaría poder tener algo donde yo tenga todo en el mismo sistema [...] que yo pueda ver todo el proceso de una misma orden ahí mismo.&quot; — Angélica, Coordinadora de Operaciones" style="text;html=1;strokeColor=#9673a6;fillColor=#f9f0ff;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=10;fontStyle=2;" vertex="1" parent="1">
+      <mxGeometry x="920" y="1015" width="680" height="60" as="geometry" />
+    </mxCell>
+
+  </root>
+</mxGraphModel>
